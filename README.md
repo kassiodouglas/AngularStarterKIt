@@ -14,7 +14,9 @@ Run `ng serve` para o dev server. Navegue para `http://localhost:4200/`.
 
 Rode  `npm run cc -- --local NOME_PASTA/SUBPASTAS --name NOME_COMPONENTE` (cc=create component) para gerar componentes internos na pasta 'resources', onde estão estruturados os tipos de componentes.
 
-Rode `ng generate service services/NOME_SERVIÇO` ou `ng g s services/NOME_SERVIÇO` para gerar um novo serviço de interação com o backend ou com apis.
+Rode  `npm run ci -- --name NOME_INTERFACE` (ci=create interface) para gerar interfaces de dados na pasta 'interfaces'.
+
+Rode  `npm run cs -- --name NOME_SERVICE` (cs=create service) para gerar serviços de dados na pasta 'services'.
 
 `OBS: Importante usar os comandos para criação, pois eles que criam os componentes com estrutura básica e fazem a inclusão dos mesmos no núcleo da aplicação.`
 
