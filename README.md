@@ -4,6 +4,12 @@ Projeto gerado com [Angular CLI](https://github.com/angular/angular-cli) version
 
 <br>
 
+## Inicio rápido
+
+Ao clonar o projeto rode `npm i` e `ng serve`.
+
+<br>
+
 ## Development server
 
 Run `ng serve` para o dev server. Navegue para `http://localhost:4200/`.
