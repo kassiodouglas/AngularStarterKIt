@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Instangular": {
+    "AngularStarter": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Instangular:build:production"
+              "browserTarget": "AngularStarter:build:production"
             },
             "development": {
-              "browserTarget": "Instangular:build:development"
+              "browserTarget": "AngularStarter:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Instangular:build"
+            "browserTarget": "AngularStarter:build"
           }
         },
         "test": {
