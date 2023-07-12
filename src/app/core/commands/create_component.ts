@@ -10,7 +10,7 @@ const options = yargs.options({
 
   local: {
     alias: 'l',
-    description: 'Local onde será criado o novo componente. Todos por padão ficam dentro de "resources"',
+    description: 'Local onde será criado o novo componente. Todos por padão ficam dentro de "modules"',
     type: 'string',
     demandOption: true
   },
@@ -33,7 +33,7 @@ const options = yargs.options({
 
 const tests = (!options.test) ? '--skip-tests' : '';
 
-const path = `resources/${options.local}/${options.name}`
+const path = `modules/${options.local}/${options.name}`
 
 
 const command = `ng generate component ${path} ${tests}`;

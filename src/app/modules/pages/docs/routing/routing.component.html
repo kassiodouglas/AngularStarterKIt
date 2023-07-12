@@ -1,0 +1,156 @@
+<div class="row my-3 p-3 bg-white rounded shadow">
+    <div class="col">
+        <h4 id="roteamento" class="fw-bold border-bottom border-secondary py-2 text-primary">
+            Roteamento
+        </h4>
+
+        <p>
+            O sistema de roteamento do angular é gerado como um array dentro de
+            'app-routing.module.ts'.Foi feito a abstração desse array para uma classe
+            (app/core/Router.ts) facilitando a criação e manutenção.
+        </p>
+
+        <div>
+            Metodos da classe e como usar:
+
+            <div class="mb-3">
+                <p>all() => <small>retorna um objeto das rotas criadas</small></p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>
+                    Router.All()
+                </code>
+            </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>path() => <small>retorna o path da rota pelo nome</small></p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>
+                    Router.path('nameroute')
+                </code>
+            </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>get(path:String) => <small>cria uma rota temporaria</small></p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>
+                    import &#123;NameComponent&#125; from "../modules/pages/NameComponent/name.component";
+
+                    Router.get('/nome-na-url',NameComponent)
+                </code>
+            </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>
+                    set() => <small>seta as rotas temporarias dentro da classe</small>
+                </p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>
+                    Router.get('/nome-na-url').set()
+                </code>
+            </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>named(name:string) => <small>nomeia uma rota com nome unico</small></p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>
+                    Router.named('nameroute').get('/nome-na-url').set()
+                </code>
+            </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>
+                    redirect(path:String, pathTo:string) =>
+                    <small>faz o redirecionamento de um path para outro (usa a propria url,
+                        não o nome)</small>
+                </p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>
+                    Router.redirect('/nome-na-url', '/nome-na-url-redirecionada');
+                </code>
+            </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>
+                    layout(layout:component,callback) => <small>agrupa varias rotas dentro de um layout</small>
+                </p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>
+                    import &#123;LayoutComponent&#125; from "../modules/layouts/LayoutComponent/layout.component";
+
+                    Router.layout(LayoutComponent,()=>&#123;
+                        Router.named('home').get('', HomeComponent);
+                        Router.named('docs').get('documentacao/:title', DocsComponent);  
+                    &#125;).set();
+                </code>
+                </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>
+                    prefix(prefix:string, callback) => <small>prefixa um grupo de rotas</small>
+                </p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>    
+                    Router.prefix('materias',()=>&#123;
+                        Router.get('matematica', MathComponent);
+                        Router.get('portugues',PortComponent);  
+                    &#125;).set();
+
+                    #paths:
+                    #/materias/matematica
+                    #/materias/portugues
+                </code>
+                </pre>
+            </div>
+
+            <div class="mb-3">
+                <p>
+                    guard(guards:Array) => <small>adiciona um guard em um grupo de rotas</small>
+                </p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>  
+                    import &#123;AuthGuard&#125; from "../core/gurad/auth.guard";
+
+                    Router.guard([AuthGuard],()=>&#123;
+                        Router.get('matematica', MathComponent);
+                        Router.get('portugues',PortComponent);  
+                    &#125;).set();                    
+                </code>
+                </pre>
+            </div>
+
+
+            <br><br>
+            <div class="mb-3">
+                <p class="fw-bold">
+                   Pode ser usado varios conjuntos de metodos juntos:
+                </p>
+                <pre class="bg-dark text-white p-2 rounded">
+                <code>  
+                    import ...
+
+                    Router.guard([AuthGuard],()=>&#123;
+
+                        Router.prefix('materias',()=>&#123;
+
+                            Router.layout(LayoutComponent,()=>&#123;
+                                Router.get('matematica', MathComponent);
+                                Router.get('portugues',PortComponent);  
+                            &#125;)
+
+                        &#125;)
+
+                    &#125;).set();                    
+                </code>
+                </pre>
+            </div>
+
+        </div>
+    </div>
+</div>

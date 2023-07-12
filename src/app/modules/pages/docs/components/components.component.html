@@ -1,0 +1,54 @@
+<div class='row my-3 p-3 bg-white rounded shadow'>
+    <div class="col">
+        <h4 id='componentes' class="fw-bold border-bottom border-secondary py-2 text-primary"> Componentes</h4>
+
+        <p>Lista com os componentes já inclusos e como usar.</p>
+
+
+        <div class="d-flex">
+            <div ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills flex-column" orientation="horizontal">
+                <ng-container ngbNavItem="card">
+                    <button ngbNavLink>card</button>
+                    <ng-template ngbNavContent>
+                      
+                        <div class="">
+                            <card title='This is a card!'>
+                                
+                                <ng-template #cardContent>
+                                    Raw denim you probably haven't heard of them jean shorts Austin. 
+                                    Nesciunt tofu stumptown alikassiooooqua, retro synth master cleanse. 
+                                    Mustache cliche tempor, williamsburg carles vegan helvetica.
+                                     Reprehenderit butcher retro keffiyeh dreamcatcher synth. 
+                                     Cosby sweater eu banh mi, qui irure terry richardson ex squid. 
+                                     Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                                </ng-template>
+                            </card>   
+                        </div>                    
+
+
+                    </ng-template>
+                </ng-container>
+
+                <ng-container ngbNavItem="tile">
+                    <button ngbNavLink>tile</button>
+                    <ng-template ngbNavContent>
+                        <p>...tile</p>
+                    </ng-template>
+                </ng-container>
+
+                <ng-container ngbNavItem="sidebar">
+                    <button ngbNavLink>sidebar</button>
+                    <ng-template ngbNavContent>
+                        <p>...sidebar</p>
+                    </ng-template>
+                </ng-container>
+
+            </div>
+        
+            <div [ngbNavOutlet]="nav" class="ms-4"></div>
+        </div>
+
+
+    </div>
+</div>
+

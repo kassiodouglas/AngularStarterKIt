@@ -1,0 +1,21 @@
+<div class="card-box">
+
+    <div class="card info-card sales-card">
+
+        <div class="options">
+            <ng-container [ngTemplateOutlet]="options">
+            </ng-container>  
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+
+            <div class="card-content px-3 py-2">
+                <ng-container [ngTemplateOutlet]="cardContent">
+                </ng-container>                
+            </div>
+        </div>
+      
+    </div>
+
+</div>

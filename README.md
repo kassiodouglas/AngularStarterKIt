@@ -18,7 +18,7 @@ Run `ng serve` para o dev server. Navegue para `http://localhost:4200/`.
 
 ## Code scaffolding
 
-Rode  `npm run cc -- --local NOME_PASTA/SUBPASTAS --name NOME_COMPONENTE` (cc=create component) para gerar componentes internos na pasta 'resources', onde estão estruturados os tipos de componentes.
+Rode  `npm run cc -- --local NOME_PASTA/SUBPASTAS --name NOME_COMPONENTE` (cc=create component) para gerar componentes internos na pasta 'modules', onde estão estruturados os tipos de componentes.
 
 Rode  `npm run ci -- --name NOME_INTERFACE` (ci=create interface) para gerar interfaces de dados na pasta 'interfaces'.
 
@@ -41,7 +41,7 @@ O projeto está estruturado da seguinte forma:
     └─app
       ├───commands
       ├───interfaces
-      ├───resources
+      ├───modules
       │   ├───components
       │   ├───layouts
       │   │   └───app
@@ -64,7 +64,7 @@ O projeto está estruturado da seguinte forma:
 `app`: onde fica os arquivos da aplicação em si
 - `commands`: comandos internos
 - `interfaces`: arquivos de modelos de dados
-- `resources`: arquivos onde são gerados os componentes
+- `modules`: arquivos onde são gerados os componentes
     - `components`: componentes que são 'pedaços de códigos' para reutilização
     - `layouts`: componetes para layouts da aplicação (uma espécie de cabeçalho). O app é o layout padrão
     - `navigation`: componetes de navegação
@@ -80,12 +80,12 @@ As rotas são criadas dentro do diretório 'routes' no arquivo 'web.ts'. Nele h�
 
 ```js
 # arquivo web.ts
-import { NameComponent } from "../resources/pages/NameComponent/NameComponent";
+import { NameComponent } from "../modules/pages/NameComponent/NameComponent";
 Router.set('', NameComponent);
 
 # ou
 
-import { NameComponent } from "../resources/pages/NameComponent/NameComponent";
+import { NameComponent } from "../modules/pages/NameComponent/NameComponent";
 Router.raw({path:'', component: NameComponent});
 ```
 

@@ -1,11 +1,17 @@
-import { Router } from "../Router"
+import { Router } from "../core/Router"
+import { InitialComponent } from "../modules/layouts/initial/initial.component";
 
-import { HomeComponent } from '../resources/pages/home/home.component';
+import { DocsComponent } from "../modules/pages/docs/docs.component";
+import { HomeComponent } from '../modules/pages/home/home.component';
 
-Router.set('', HomeComponent);
+Router.layout(InitialComponent,()=>{
+    Router.named('home').get('', HomeComponent);
+    Router.named('docs').get('documentacao/:title', DocsComponent);  
+}).set();
 
-// above is the same of:
-// Router.raw({path:'',component: HomeComponent});
+
+Router.redirect('documentacao', 'documentacao/estrutura');
+
 
 
 
